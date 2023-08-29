@@ -1,0 +1,362 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:UIBase.Controls">
+    <!--IconButton-->
+    <Style TargetType="{x:Type local:IconButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:IconButton}">
+                    <Border Background="#01000000"  >
+                        <Image x:Name="bm" Source="{TemplateBinding Icon}" Stretch="Uniform"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bm" Property="Source" 
+                                    Value="{Binding HoverIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="bm" Property="Source" 
+                                    Value="{Binding PushIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="bm" Property="Source" 
+                                    Value="{Binding DisableIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--TextButton-->
+    <Style TargetType="{x:Type local:TextButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Background" Value="#01000000"/>
+        <Setter Property="HoverBackground" Value="#01000000"/>
+        <Setter Property="PushBackground" Value="#01000000"/>
+        <Setter Property="DisableBackground" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HoverBorderBrush" Value="Transparent"/>
+        <Setter Property="PushBorderBrush" Value="Transparent"/>
+        <Setter Property="BorderRadius" Value="0"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="TextMargin" Value="5,0"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="TextHoriAlignment" Value="Center"/>
+        <Setter Property="TextVerAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="HoverForeground" Value="Black"/>
+        <Setter Property="PushForeground" Value="Black"/>
+        <Setter Property="DisableForeground" Value="Gray"/>
+        <Setter Property="TextBtnTrimming" Value="CharacterEllipsis"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TextButton}">
+                    <Border x:Name="brRoot"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding BorderRadius}">
+                        <Grid >
+                            <TextBlock x:Name="tb" 
+                                       Margin="{TemplateBinding TextMargin}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       HorizontalAlignment="{TemplateBinding TextHoriAlignment}"
+                                       VerticalAlignment="{TemplateBinding TextVerAlignment}"
+                                       TextTrimming="{TemplateBinding TextBtnTrimming}"
+                                       Text="{TemplateBinding Content}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="tb" Property="Foreground"
+                                    Value="{Binding HoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="brRoot" Property="Background"
+                                    Value="{Binding HoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="brRoot" Property="BorderBrush"
+                                    Value="{Binding HoverBorderBrush,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="tb" Property="Foreground"
+                                    Value="{Binding PushForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="brRoot" Property="Background"
+                                    Value="{Binding PushBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="brRoot" Property="BorderBrush"
+                                    Value="{Binding PushBorderBrush,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="tb" Property="Foreground"
+                                    Value="{Binding DisableForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="brRoot" Property="Background"
+                                    Value="{Binding DisableBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--IconLeftButton-->
+    <Style TargetType="{x:Type local:IconLeftButton}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#FFB5B5B5"/>
+        <Setter Property="HoverForeground" Value="#FFFF9600"/>
+        <Setter Property="PushForeground" Value="#FFFF9600"/>
+        <Setter Property="CheckForeground" Value="#FFFF9600"/>
+        <Setter Property="IconVisibility" Value="Visible"/>
+        <Setter Property="Background" Value="#01000000"/>
+        <Setter Property="HoverBackground" Value="#01000000"/>
+        <Setter Property="PushBackground" Value="#01000000"/>
+        <Setter Property="CheckBackground" Value="#01000000"/>
+        <Setter Property="IconWidth" Value="10"/>
+        <Setter Property="IconHeight" Value="10"/>
+        <Setter Property="IconMargin" Value="0"/>
+        <Setter Property="TextMargin" Value="0"/>
+        <Setter Property="Icon" Value="{x:Null}"/>
+        <Setter Property="HoverIcon" Value="{x:Null}"/>
+        <Setter Property="PushIcon" Value="{x:Null}"/>
+        <Setter Property="CheckIcon" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:IconLeftButton}">
+                    <Border x:Name="BkBorder" CornerRadius="{TemplateBinding BorderRadius}" Background="{TemplateBinding Background}" 
+							BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <Grid VerticalAlignment="Center"  HorizontalAlignment="{TemplateBinding horAlignment}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="bm" Stretch="Fill"
+                                   Margin="{TemplateBinding IconMargin}"
+                                   Width="{TemplateBinding IconWidth}"                                    
+                                   Height="{TemplateBinding IconHeight}" 
+                                   Source="{TemplateBinding Icon}" Visibility="{TemplateBinding IconVisibility}"/>
+
+                            <TextBlock x:Name="TB" Grid.Column="1" TextTrimming="CharacterEllipsis"
+                                       VerticalAlignment="Center" HorizontalAlignment="Left"
+                                       Foreground="{TemplateBinding Foreground}" 
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Margin="{TemplateBinding TextMargin}"      
+                                       Text="{TemplateBinding Content}"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bm" Property="Source" 
+                                    Value="{Binding HoverIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="TB" Property="Foreground" 
+                                    Value="{Binding HoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="BkBorder" Property="Background"
+                                    Value="{Binding HoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="bm" Property="Source" 
+                                    Value="{Binding PushIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="TB" Property="Foreground" 
+                                    Value="{Binding PushForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="BkBorder" Property="Background"
+                                    Value="{Binding PushBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="bm" Property="Source" 
+                                    Value="{Binding CheckIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="TB" Property="Foreground" 
+                                    Value="{Binding CheckForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="BkBorder" Property="Background"
+                                    Value="{Binding CheckBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="bm" Property="Source" 
+                                    Value="{Binding DisableIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="TB" Property="Foreground" 
+                                    Value="{Binding DisableForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="BkBorder" Property="Background"
+                                    Value="{Binding DisableBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+
+    <Style TargetType="{x:Type local:TextRadioButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="BorderRadius" Value="0"/>
+        <Setter Property="TextMargin" Value="0"/>
+        <Setter Property="TextHoriAlignment" Value="Center"/>
+        <Setter Property="TextVerAlignment" Value="Center"/>
+        <Setter Property="BlockColor" Value="Transparent"/>
+        <Setter Property="BlockHorizontalAlignment" Value="Center"/>
+        <Setter Property="BlockVerticalAlignment" Value="Bottom"/>
+        <Setter Property="HoverBackground" Value="Transparent"/>
+        <Setter Property="PushBackground" Value="Transparent"/>
+        <Setter Property="TextTrimming" Value="None"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TextRadioButton}">
+                    <Border x:Name="brRoot" 
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding BorderRadius}">
+                        <Grid>
+                            <TextBlock x:Name="tb" 
+                                       Margin="{TemplateBinding TextMargin}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       TextAlignment="{TemplateBinding TextHoriAlignment}"
+                                       VerticalAlignment="{TemplateBinding TextVerAlignment}"
+                                       Text="{TemplateBinding Content}" 
+                                       TextTrimming="{TemplateBinding TextTrimming}"/>
+                            <Border x:Name="br" CornerRadius="1" Visibility="Collapsed"
+                                    Background="{TemplateBinding BlockColor}"
+                                    Width="{TemplateBinding BlockWidth}"
+                                    Height="{TemplateBinding BlockHeight}" 
+                                    VerticalAlignment="{TemplateBinding BlockVerticalAlignment}"
+                                    HorizontalAlignment="{TemplateBinding BlockHorizontalAlignment}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="tb" Property="Foreground"
+                                    Value="{Binding HoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="brRoot" Property="Background"
+                                    Value="{Binding HoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="tb" Property="Foreground"
+                                    Value="{Binding PushForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="brRoot" Property="Background"
+                                    Value="{Binding PushBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="br" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--CheckBoxButton-->
+    <Style TargetType="{x:Type local:CheckBoxButton}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="IconHeight" Value="24" />
+        <Setter Property="IconWidth" Value="24" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CheckBoxButton}">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Image x:Name="bm" Height="{TemplateBinding IconHeight}" Width="{TemplateBinding IconWidth}" Source="{TemplateBinding Icon}" Stretch="UniformToFill"/>
+                        <TextBlock x:Name="bt"  Padding="5,0,0,0" VerticalAlignment="Center"
+                               Foreground="{TemplateBinding Foreground}" 
+                               FontSize="{TemplateBinding FontSize}" 
+                               Text="{TemplateBinding Content}" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="false"/>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="bm" Property="Source" 
+                                        Value="{Binding HoverIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                <Setter TargetName="bt" Property="Foreground" 
+                                        Value="{Binding Foreground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="true"/>
+                                <Condition Property="IsMouseOver" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="bm" Property="Source" 
+                                        Value="{Binding CheckIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                <Setter TargetName="bt" Property="Foreground" 
+                                        Value="{Binding CheckForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="true"/>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="bm" Property="Source" 
+                                        Value="{Binding CheckHoverIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                <Setter TargetName="bt" Property="Foreground" 
+                                        Value="{Binding CheckForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--IconRadioButton-->
+    <Style TargetType="{x:Type local:IconRadioButton}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:IconRadioButton}">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Image x:Name="RadioImage" Source="{TemplateBinding UnSelectedIcon}"
+                               Width="{TemplateBinding IconWidth}" Height="{TemplateBinding IconHeight}" />
+                        <TextBlock x:Name="RadioLbl" VerticalAlignment="Center" Padding="5,0,0,0"
+                               Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}"
+                               Text="{TemplateBinding Content}" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="false"/>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="RadioImage" Property="Source" 
+                                        Value="{Binding UnSelectedIconHover,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="true"/>
+                                <Condition Property="IsMouseOver" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="RadioImage" Property="Source" 
+                                        Value="{Binding SelectedIcon,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="true"/>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="RadioImage" Property="Source" 
+                                        Value="{Binding SelectedIconHover,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

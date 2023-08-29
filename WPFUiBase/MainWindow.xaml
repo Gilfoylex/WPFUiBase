@@ -1,0 +1,26 @@
+﻿<uibase:BaseWindow x:Class="WPFUiBase.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uibase="clr-namespace:UIBase.Window;assembly=UIBase"
+        xmlns:local="clr-namespace:WPFUiBase"
+        Background="White"
+        mc:Ignorable="d"
+        Style="{DynamicResource BaseWindowStyle}"
+        Title="MainWindow" Height="450" Width="800">
+    <uibase:BaseWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/UIBase;Component/Window/BaseWindowStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </uibase:BaseWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom">我是底部</Label>
+    </Grid>
+</uibase:BaseWindow>
