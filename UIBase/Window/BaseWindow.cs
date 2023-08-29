@@ -71,22 +71,14 @@ namespace UIBase.Window
         {
             if (IsMaximized != (WindowState == WindowState.Maximized))
                 IsMaximized = WindowState == WindowState.Maximized;
-
-            //_rootGrid!.Margin = WindowState switch
-            //{
-            //    WindowState.Maximized => GetMaximizeBorderThickness(new WindowInteropHelper(this).Handle),
-            //    _ => new Thickness(0d)
-            //};
         }
 
-        private Grid? _rootGrid;
         private Grid? _titleBarTopSide;
         private Grid? _titleBar;
         public Grid? CustomTitleHeader { get; private set; }
 
         public override void OnApplyTemplate()
         {
-            _rootGrid = GetRequiredTemplateChild<Grid>("PART_RootGrid");
             _titleBarTopSide = GetRequiredTemplateChild<Grid>("PART_TitleBarTopSide");
             _titleBar = GetRequiredTemplateChild<Grid>("PART_TitleBar");
             CustomTitleHeader = GetRequiredTemplateChild<Grid>("PART_CustomTitleHeader");
