@@ -17,10 +17,6 @@
         </ResourceDictionary>
     </uibase:BaseWindow.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Label Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom">我是底部</Label>
+        
     </Grid>
 </uibase:BaseWindow>
